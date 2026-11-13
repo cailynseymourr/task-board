@@ -130,3 +130,49 @@
 .comment-form button { align-self: flex-end; padding: 8px 16px; border: 0; border-radius: 8px; background: var(--accent); color: #fff; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; }
 .comment-form button:hover { background: var(--accent-hover); }
 .comment-form button:disabled { opacity: 0.5; cursor: default; }
+
+/* ---------- Dark theme + per-column colors ---------- */
+.column-todo        { --col: #7a9fd2; }
+.column-in_progress { --col: #f59e0b; }
+.column-in_review   { --col: #a78bfa; }
+.column-done        { --col: #34d399; }
+
+.column {
+  background: color-mix(in srgb, var(--col, #94a3b8) 5%, var(--column));
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--col, var(--border));
+}
+.column-over {
+  background: color-mix(in srgb, var(--col, var(--accent)) 14%, var(--column));
+  border-color: var(--col, var(--accent));
+}
+.column-header h2 { color: var(--col, var(--muted)); }
+.dot { background: var(--col, var(--muted)); box-shadow: 0 0 8px var(--col, transparent); }
+.count {
+  background: color-mix(in srgb, var(--col, #94a3b8) 18%, transparent);
+  color: var(--col, var(--muted));
+}
+
+.empty { border-color: var(--border); color: var(--muted); }
+
+.card { border-left: 3px solid var(--col, var(--accent)); }
+.card:hover { border-color: var(--border); border-left-color: var(--col, var(--accent)); }
+.card-overlay { border-left-color: var(--accent); }
+
+.badge-low    { background: rgba(52, 211, 153, 0.15);  color: #6ee7b7; }
+.badge-normal { background: rgba(96, 165, 250, 0.15);  color: #93c5fd; }
+.badge-high   { background: rgba(248, 113, 113, 0.15); color: #fca5a5; }
+.due-soon     { background: rgba(251, 191, 36, 0.15);  color: #fcd34d; }
+
+.skeleton {
+  background: linear-gradient(90deg, #1b1f2a 25%, #242938 50%, #1b1f2a 75%);
+  background-size: 200% 100%;
+}
+
+.add-form button, .comment-form button { color: #fff; }
+.comment-form textarea { background: var(--bg); color: var(--text); }
+.comment { background: var(--bg); border: 1px solid var(--border); }
+.panel-backdrop { background: rgba(0, 0, 0, 0.6); }
+.panel { border-left: 1px solid var(--border); }
+.panel-close:hover { background: var(--column); }
+::placeholder { color: #5f6679; }

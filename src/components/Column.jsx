@@ -11,7 +11,7 @@ const EMPTY_TEXT = {
 export default function Column({ column, tasks, onOpen }) {
   const { setNodeRef, isOver } = useDroppable({ id: column.id })
   return (
-    <section className={`column ${isOver ? 'column-over' : ''}`}>
+    <section className={`column column-${column.id} ${isOver ? 'column-over' : ''}`}>
       <header className="column-header">
         <h2><span className={`dot dot-${column.id}`} />{column.title}</h2>
         <span className="count">{tasks.length}</span>

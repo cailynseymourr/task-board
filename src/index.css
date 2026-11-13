@@ -1,25 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  --bg: #f7f8fa;
-  --surface: #ffffff;
-  --column: #f0f1f5;
-  --border: #e4e6ec;
-  --text: #1b1f2a;
-  --muted: #6b7285;
-  --accent: #5b5bd6;
-  --accent-hover: #4a4ac4;
-  --accent-soft: #e9e9fb;
-  --danger: #b42323;
-  --danger-soft: #fdeaea;
-  --radius: 10px;
-  --shadow-sm: 0 1px 2px rgba(20, 24, 40, 0.06);
-  --shadow-md: 0 6px 16px rgba(20, 24, 40, 0.12);
+  --bg: #0d0f14;
+  --surface: #181b24;
+  --column: #12141b;
+  --border: #272b38;
+  --text: #e8eaf0;
+  --muted: #8b92a6;
+  --accent: #7c7cf0;
+  --accent-hover: #9393f5;
+  --accent-soft: rgba(124, 124, 240, 0.16);
+  --danger: #fca5a5;
+  --danger-soft: rgba(248, 113, 113, 0.14);
+  --radius: 12px;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
 
+  color-scheme: dark;
   font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   color: var(--text);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
 }
 * { box-sizing: border-box; }
-body { margin: 0; min-height: 100vh; }
+body { margin: 0; min-height: 100vh; background: var(--bg); }
