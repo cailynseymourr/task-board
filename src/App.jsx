@@ -82,19 +82,31 @@ export default function App() {
     <div className="app">
       <header className="app-header">
         <h1>Task Board</h1>
+        <p className="subtitle">Drag tasks across columns to update their status.</p>
       </header>
 
       <AddTaskForm onAdd={addTask} />
 
       {error && (
         <div className="error-banner">
-          {error}
-          <button onClick={() => setError(null)}>Dismiss</button>
+          <span>{error}</span>
+          <span>
+            <button onClick={loadTasks}>Retry</button>
+            <button onClick={() => setError(null)}>Dismiss</button>
+          </span>
         </div>
       )}
 
       {loading ? (
-        <div className="page-message">Loading tasks…</div>
+        <div className="board">
+          {COLUMNS.map(col => (
+            <section key={col.id} className="column">
+              <header className="column-header"><h2>{col.title}</h2></header>
+              <div className="skeleton" />
+              <div className="skeleton" />
+            </section>
+          ))}
+        </div>
       ) : (
         <DndContext
           sensors={sensors}
