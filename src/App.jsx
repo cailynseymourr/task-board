@@ -8,6 +8,7 @@ import { COLUMNS } from './constants'
 import Column from './components/Column'
 import { CardBody } from './components/TaskCard'
 import AddTaskForm from './components/AddTaskForm'
+import TaskDetail from './components/TaskDetail'
 import './App.css'
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [activeId, setActiveId] = useState(null)
+  const [selectedID, setSelectedID] = useState(null)
 
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 6 } })
@@ -77,6 +79,7 @@ export default function App() {
   if (authError) return <div className="page-message error">Sign-in failed: {authError}</div>
 
   const activeTask = tasks.find(t => t.id === activeId)
+  const selectedTask = tasks.find(t => t.id === selectedID)
 
   return (
     <div className="app">
@@ -120,6 +123,7 @@ export default function App() {
                 key={col.id}
                 column={col}
                 tasks={tasks.filter(t => t.status === col.id)}
+                onOpen={setSelectedID}
               />
             ))}
           </div>
@@ -127,6 +131,9 @@ export default function App() {
             {activeTask ? <div className="card card-overlay"><CardBody task={activeTask} /></div> : null}
           </DragOverlay>
         </DndContext>
+      )}
+      {selectedTask && (
+        <TaskDetail task={selectedTask} onClose={() => setSelectedID(null)} />
       )}
     </div>
   )
